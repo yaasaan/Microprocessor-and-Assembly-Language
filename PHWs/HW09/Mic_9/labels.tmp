@@ -1,0 +1,16 @@
+<ASSEMBLER_INFO>
+ <WORKING_DIR>c:\</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\M32DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <LABELS>
+  <main><FILE>E:\_Project\micro\T9\T9.asm</FILE><LINE>5</LINE></main>
+  <L3><FILE>E:\_Project\micro\T9\T9.asm</FILE><LINE>13</LINE></L3>
+  <delay><FILE>E:\_Project\micro\T9\T9.asm</FILE><LINE>21</LINE></delay>
+  <L2><FILE>E:\_Project\micro\T9\T9.asm</FILE><LINE>28</LINE></L2>
+  <L1><FILE>E:\_Project\micro\T9\T9.asm</FILE><LINE>24</LINE></L1>
+ </LABELS>
+</ASSEMBLER_INFO>

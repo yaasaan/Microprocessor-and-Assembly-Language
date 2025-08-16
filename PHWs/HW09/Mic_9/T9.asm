@@ -1,0 +1,28 @@
+	.INCLUDE "M32DEF.INC"
+	.ORG 0 
+	RJMP main
+	.ORG $100
+main:	LDI R17,$00
+		OUT SPL,R17
+		LDI R17,$02
+		OUT	SPH,R17
+
+		LDI R16,$00
+		LDI R18,$00
+		SBI DDRA,0
+L3:		SBI PORTA,0
+		RCALL delay
+		LDI R18,$00
+		CBI PORTA,0
+		RCALL delay
+		LDI R18,$00
+		RJMP L3
+ 
+delay:	INC R18
+		CPI R18,$F0
+		BREQ L2
+L1:		INC R16
+		CPI R16,$FF
+		BRNE L1
+		RJMP delay
+L2:		RET

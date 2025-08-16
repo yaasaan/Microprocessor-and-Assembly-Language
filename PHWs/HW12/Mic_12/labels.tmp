@@ -1,0 +1,13 @@
+<ASSEMBLER_INFO>
+ <WORKING_DIR>c:\</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\M32DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <LABELS>
+  <main><FILE>E:\_Project\micro\T12\T12.asm</FILE><LINE>5</LINE></main>
+  <L1><FILE>E:\_Project\micro\T12\T12.asm</FILE><LINE>12</LINE></L1>
+ </LABELS>
+</ASSEMBLER_INFO>

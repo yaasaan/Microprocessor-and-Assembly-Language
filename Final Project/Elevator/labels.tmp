@@ -1,0 +1,23 @@
+<ASSEMBLER_INFO>
+ <WORKING_DIR>c:\</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <INCLUDED_FILES>
+  <FILE>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes\M32DEF.INC</FILE>
+ </INCLUDED_FILES>
+ <LABELS>
+  <main><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>10</LINE></main>
+  <arrive><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>50</LINE></arrive>
+  <timer><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>61</LINE></timer>
+  <loop><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>48</LINE></loop>
+  <open><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>56</LINE></open>
+  <arriveExit><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>59</LINE></arriveExit>
+  <timerExit><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>86</LINE></timerExit>
+  <timerDone><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>64</LINE></timerDone>
+  <openDone><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>70</LINE></openDone>
+  <closeDone><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>74</LINE></closeDone>
+  <waitDone><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>77</LINE></waitDone>
+  <alarmOn><FILE>D:\Other\Elevator\Elevator.asm</FILE><LINE>84</LINE></alarmOn>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,57 @@
+	.INCLUDE "M32DEF.INC"
+	.ORG 0 
+	RJMP main
+	.ORG $100
+	.DB $3F , $06 , $5B , $4F , $66 , $6D , $7D , $07 , $7F , $6F
+	.ORG $200
+main:	LDI R16 , $00
+		OUT DDRA , R16
+		OUT SFIOR , R16
+		LDI R16 , $FF
+		LDI R31 , $02
+		OUT PORTA , R16
+		OUT DDRB , R16
+		OUT DDRC , R16	
+		IN R16 , PINA
+		CLR R18
+		CLR R17
+		
+		
+LX:		CPI R16 , 100
+		BRLO L1
+		SUBI R16 , 100
+		INC R18
+		RJMP LX
+		
+L1:		CPI R16 , 10
+		BRLO L2
+		SUBI R16,10
+		INC R17
+		RJMP L1
+
+L2:		ADD R30 , R16
+		LPM R16 , Z
+		CLR R30
+		ADD R30 , R17
+		LPM R17 , Z
+		CLR R30
+		ADD R30 , R18
+		LPM R18 , Z
+
+L3:		SBI PORTC , 0
+		SBI PORTC , 1
+		SBI PORTC , 2
+
+		OUT PORTB , R16
+		CBI PORTC , 0
+		SBI PORTC , 0
+
+		OUT PORTB , R17
+		CBI PORTC , 1
+		SBI PORTC , 1
+
+		OUT PORTB , R18
+		CBI PORTC , 2 
+		SBI PORTC , 2
+		RJMP L3
+

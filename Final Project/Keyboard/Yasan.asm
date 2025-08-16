@@ -1,0 +1,106 @@
+	.INCLUDE "M32DEF.INC"
+	.ORG 0 
+	RJMP main
+	.ORG $100
+	.DB $82,$14,$24,$44,$12,$22,$42,$11,$21,$41,$99,$99,$99,$99,$99,$99, $06 , $5B , $4F , $66 , $6D , $7D , $07 , $7F , $6F
+																		; 16	17	  18	19	  20    21    22    23    24																															
+		;$11,$21,$41,$81,				
+		;$12,$22,$42,$82,
+		;$14,$24,$44,$84,
+		;$18,$28,$48,$88
+
+	.ORG $200
+main:	LDI R16 , $0F
+		OUT DDRA , R16
+		OUT SFIOR , R16
+		OUT PORTA , R16
+		SER R16
+		CLR R18
+		OUT DDRB , R16
+		OUT DDRC , R16
+		OUT DDRD , R16
+		OUT PORTB , R16
+		OUT PORTC , R16
+		OUT PORTD , R16
+		
+		LDI R22 , 200	
+		LDI R23 , $1D
+		OUT OCR0 , R22
+
+LOOP1:	IN R16 , PINA
+		ANDI R16 , $F0
+		CPI R16 , $00
+		BRNE LOOP1
+
+lOOP2:	LDI R17 , $01
+		OUT PORTA , R17
+
+LOOP3:	IN R16 , PINA
+		ANDI R16 , $F0
+		CPI R16 , $00
+		BRNE LOOP4
+		INC R18
+		CLC
+		ROL R17
+		OUT PORTA , R17
+		CPI R18 , 4
+		BRNE LOOP3
+		CLR R18
+		RJMP lOOP2
+
+LOOP4:	ANDI R17 , $0F
+		OR R16 , R17
+		CLR R18  
+		CLR R30
+		LDI R31 , $02
+
+lOOP5:	LPM R17 , z
+		CPI R16 , $28	;KEY=0
+		BREQ B
+		CP R17 , R16
+		BREQ A			; KEY=1 ... 9
+		INC R18
+		INC R30
+		CPI R18 , 16
+		BRNE lOOP5
+		CLR R27
+		OUT PORTA,R27
+		RJMP LOOP1
+
+A:		CLR R19
+		MOV R19 , R30
+		SUBI R19 , -15
+		CLR R30
+		ADD R30 , R19
+		LPM R19 , Z
+
+LOOPA:	CBI PORTD ,0
+		OUT PORTC , R19
+		CLR R27
+		OUT PORTA,R27
+		RJMP LOOP1
+
+B:		OUT TCCR0 ,R23
+		CLC
+LOOP8:	LDI R20 , $01
+DANC:	OUT PORTC ,R20
+
+		IN R25 , PINB
+		LSR R25
+		LSR R25
+		LSR R25
+
+		IN R26 , TCNT0
+		CPI R26 , 0
+		BREQ LOOP9
+L1:		CLC
+		CPI R20 , $40
+		BREQ LOOP8
+		RJMP DANC
+
+LOOP9 :	SBRC R25 , 0		
+		ROL R20
+		LDI R24 , $08
+		EOR R25 , R24
+		OUT PORTD , R25
+		RJMP L1
